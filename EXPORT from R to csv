@@ -1,0 +1,10 @@
+write.csv(data,"lecture9.csv",row.names=F)
+
+'data' is the name of the object in the R environment that needs to be exported.
+
+"lecture9" is the name we want to give it once exported into the R directory in the computer.
+
+".csv" is included so that the computer immediately identifies the file as csv.
+
+row.names = F is there so that the row enumeration in the data frame 'data', i.e. 1, 2, 3, 4, 5...., doesn't become an extra column.
+
