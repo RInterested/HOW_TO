@@ -135,7 +135,7 @@ mtcars[mtcars$cyl==6, "mpg"]
 
 NO:
 
-mtcars[mtcars$cyl==6, mtcars$mpg]     # Counterintuitive?
+mtcars[mtcars$cyl==6, mtcars$mpg]     # Extremely counterintuitive!!!!!
 
 Error in `[.data.frame`(mtcars, mtcars$cyl == 6, mtcars$mpg) : 
   undefined columns selected
