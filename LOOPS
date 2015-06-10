@@ -80,3 +80,30 @@ permutations <- function(sums){
     compis <<- compis
     permuts <<- as.matrix(rbind(sums,compis))
 }
+
+==============================================================================================================================================
+
+## LOOP THROUGH THE LEVELS OF A CATEGORICAL VARIABLE:
+-----------------------------------------------------
+
+require(lme4)
+
+ave_yields <- vector()
+for(i in levels(Dyestuff[,1])){
+    ave_yields[i] <- mean(Dyestuff[Dyestuff$Batch==i,'Yield'])
+}
+
+
+# Notice that starting the empty vector with 'vector()' avoids an extra entry in the final vector. For instance:
+
+ave_yields <- 0
+ave_yields <- vector()
+for(i in levels(Dyestuff[,1])){
+    ave_yields[i] <- mean(Dyestuff[Dyestuff$Batch==i,'Yield'])
+}
+
+# results in 
+ave_yields
+#        A    B    C    D    E    F 
+#   0 1505 1528 1564 1498 1600 1470
+# where the first 0 is not really a mean.
