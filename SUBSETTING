@@ -170,6 +170,10 @@ Error in `[.data.frame`(mtcars, "cyl" == 6, mpg) :
 
 mtcars[mtcars$cyl < 8, ]
 
+
+require(lme4)
+head(sleepstudy)
+sleepstudy[sleepstudy$Days==0:3 & sleepstudy$Subject %in% c(351, 369, 371), ]
 -----------------------------------------------------------------------------------------------------------------------------
 
 
