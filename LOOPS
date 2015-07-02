@@ -81,6 +81,13 @@ permutations <- function(sums){
     permuts <<- as.matrix(rbind(sums,compis))
 }
 
+
+##OR:
+
+plot(y ~ x, type='l', flat.df[flat.df$sch==1,])
+for(i in seq(along=flat.df$sch)){
+lines(y ~ x, flat.df[flat.df$sch==i,], col=i)
+}
 ==============================================================================================================================================
 
 ## LOOP THROUGH THE LEVELS OF A CATEGORICAL VARIABLE:
