@@ -1,0 +1,8 @@
+library(mvtnorm)
+## Correlated data: X --Normal (20, var=5), Y-- Normal (40, var=10), cor(X,Y) =0.6
+## n = number of observations
+
+sigma = matrix(c(5, 0.6 * sqrt(5*10), 0.6 * sqrt(5*10), 10), 2, 2)
+sigma
+a <- rmvnorm(n=10000,mean=c(20,40), sigma = sigma)
+head(a)[1:3,]
