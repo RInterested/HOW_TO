@@ -1,0 +1,4 @@
+sleepstudy
+data<-data.frame(subset(sleepstudy,Subject==372))
+rownames(data) <- NULL
+data
