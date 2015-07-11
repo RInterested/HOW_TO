@@ -7,3 +7,6 @@ cov_M <- r2cov(sd, cor_M)
 library(MASS)
 
 x <- mvrnorm(n = 30, Sigma = cov_M, mu = c(6,2))
+
+x1 <- x[,1]
+x2 <- x[,2]
