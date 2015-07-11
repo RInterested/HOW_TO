@@ -1,0 +1,9 @@
+cor_M <- matrix(c(1,-0.3,-0.3,1),nrow=2,byrow=T)
+sd <- c(2.5, 0.8)
+
+library(rpsychi)
+cov_M <- r2cov(sd, cor_M)
+
+library(MASS)
+
+x <- mvrnorm(n = 30, Sigma = cov_M, mu = c(6,2))
