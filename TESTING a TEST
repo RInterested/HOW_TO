@@ -23,31 +23,33 @@ round(mean(pval2 <= .05), 3)
 
 ## For the zprop function in http://stats.stackexchange.com/a/167988/67822
 
-zprop = function(x1, x2, n1, n2, alpha=0.05, t = 2){
-  nume = (x1/n1) - (x2/n2)
-  p = (x1 + x2) / (n1 + n2)
-  deno = sqrt(p * (1 - p) * (1/n1 + 1/n2))
-  z = nume / deno
-  p <- round(pnorm(-abs(z)),8)
-}
-
+set.seed(100)
 iters <- 100000
 
 n1 <- 178
 n2 <- 190
-p1 <- 64/178
-p2 <- 92/190
+p1 <- 64/n1
+p2 <- 92/n2
 
-p1 <- mean(p1, p2)
-p2 <- mean(p1, p2)
+p1
+p2
 
-x1 <- rbinom(iters, n1, p1)
-x2 <- rbinom(iters, n2, p2)
+p <- mean(c(p1, p2))
+p
+
+x1 <- rbinom(iters, n1, p)
+x2 <- rbinom(iters, n2, p)
+
+mean(x1)
+mean(x2)
+(prop1 <- mean(x1)/n1)
+(prop2 <- mean(x2)/n2)
+p
 
 pval <- 0
-
-for (i in 1:iters) {
-  pval[i] <- zprop(sum(x1[i]), sum(x2[i]), n1, n2)
+for (i in 1:100) {
+  pval[i] <- zprop(mean(x1[i]), mean(x2[i]), n1, n2)
 }
 
-round(mean(pval <= .05), 3)
+
+mean(pval <= .05)
