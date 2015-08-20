@@ -1,0 +1,21 @@
+# From
+#http://stats.stackexchange.com/questions/51494/is-the-z-test-for-difference-of-proportions-valid-for-massive-samples-with-tiny
+
+iters <- 100000
+
+n <- 23000
+p <- 0.0027
+
+x1i <- rbinom(iters, n, p)
+x2i <- rbinom(iters, n, p)
+
+pval1 <- rep(NA, iters)
+pval2 <- rep(NA, iters)
+
+for (i in 1:iters) {
+   pval1[i] <- chisq.test(matrix(c(x1i[i], n-x1i[i], x2i[i], n-x2i[i]), nrow=2, byrow=TRUE), correct=FALSE)$p.value
+   pval2[i] <- chisq.test(matrix(c(x1i[i], n-x1i[i], x2i[i], n-x2i[i]), nrow=2, byrow=TRUE), correct=TRUE)$p.value
+}
+
+round(mean(pval1 <= .05), 3)
+round(mean(pval2 <= .05), 3)
