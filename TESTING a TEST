@@ -20,36 +20,49 @@ for (i in 1:iters) {
 round(mean(pval1 <= .05), 3)
 round(mean(pval2 <= .05), 3)
 
-
+===============================================================================================================================
 ## For the zprop function in http://stats.stackexchange.com/a/167988/67822
 
-set.seed(100)
-iters <- 100000
-
-n1 <- 178
-n2 <- 190
-p1 <- 64/n1
-p2 <- 92/n2
-
-p1
-p2
-
-p <- mean(c(p1, p2))
-p
-
-x1 <- rbinom(iters, n1, p)
-x2 <- rbinom(iters, n2, p)
-
-mean(x1)
-mean(x2)
-(prop1 <- mean(x1)/n1)
-(prop2 <- mean(x2)/n2)
-p
-
-pval <- 0
-for (i in 1:100) {
-  pval[i] <- zprop(mean(x1[i]), mean(x2[i]), n1, n2)
+zprop = function(x1, x2, n1, n2){
+  nume = (x1/n1) - (x2/n2)
+  p = (x1 + x2) / (n1 + n2)
+  deno = sqrt(p * (1 - p) * (1/n1 + 1/n2))
+  z = nume / deno
+  p <- round(pnorm(-abs(z)),8)
 }
 
 
+set.seed(100)
+
+# Number of samples taken to obtain different proportions IF we set it up so that the proportions are equal:
+samples <- 100000
+
+# Number of cases for drugA and drugB:
+n1 <- 178
+n2 <- 190
+
+# Proportion of patients with heartburn:
+p1 <- 64/n1
+p2 <- 92/n2
+
+# We will make up a population where the proportion of heartburn suffers is in between p1 and p2:
+(c(p <- mean(c(p1, p2)), p1, p2))
+
+# And we'll take samples of the size of the groups assigned to drugA and drugB respectively:
+x1 <- rbinom(samples, n1, p)
+x2 <- rbinom(samples, n2, p)
+
+# Double - checking that the proportion is kept:
+(c(mean(x1),mean(x2)))
+(c(prop1 <- mean(x1)/n1, prop2 <- mean(x2)/n2, p))
+
+# Now we run the z-test in what we just did, but we repeat it 100000 times and put the results in vector pval:
+pval <- 0
+for (i in 1:100000) {
+  pval[i] <- zprop(mean(x1[i]), mean(x2[i]), n1, n2)
+}
+
+# What is the fraction of pval's below 0.05 (it should be 0.05 since we should only reject 0.05 times the true NULL):
 mean(pval <= .05)
+
+##[1] 0.10229 - Not a good test!
