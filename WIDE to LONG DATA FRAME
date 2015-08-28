@@ -1,0 +1,17 @@
+install.packages('gsheet')
+
+library(gsheet)
+data <- read.csv(text = 
+    gsheet2text('https://docs.google.com/spreadsheets/d/1WVZZmRrbUXfk-1OODohog_O5vSej-bmD614rApqFz4Y/edit?usp=sharing',
+    format ='csv'))
+
+colnames(data)[1] <- "group"
+colnames(data)[5] <-  "t3"
+ID <- seq(1:nrow(data))
+data <- data.frame(ID,data)
+head(data)
+
+library(tidyr)
+data_long <- gather(data, group, outcome, t1:t5)
+head(data_long)
+str(data_long)
