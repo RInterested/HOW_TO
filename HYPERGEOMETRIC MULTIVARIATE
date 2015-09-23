@@ -22,3 +22,5 @@ pairwise.fisher.test(Antacid)
 
 library(fmsb)
 pairwise.fisher.test(t(Antacid), p.adjust.method = "bonferroni")
+library(BiasedUrn)
+dWNCHypergeo(c(11, 12, 9), c(7, 1, 6), 14, 32, odds = 1)
