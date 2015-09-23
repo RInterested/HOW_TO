@@ -1,0 +1,24 @@
+#MULTIVARIATE HYPERGEOMETRIC DISTRIBUTION:
+
+Antacid <- matrix(c(7, 11 - 7, 1, 15 - 4, 6, 9-6), nrow = 2)
+dimnames(Antacid) = list(Symptoms = c("Heartburn", "Normal"),
+                    Medication = c("Drug A", "Drug B", "Drug C"))
+
+Antacid <- t(addmargins(Antacid))
+
+
+Fisher_p <- (choose(Antacid[1,3], Antacid[1,1]) *
+             choose(Antacid[2,3], Antacid[2,1]) *
+             choose(Antacid[3,3], Antacid[3,1])) /
+            (choose(Antacid[4,3], (Antacid[1,1] + Antacid[2,1] + Antacid[3,1])))
+Fisher_p
+
+#fisher.test does not work well:
+
+fisher.test(Antacid, simulate.p.value = T, alternative = "two.sided")
+
+
+pairwise.fisher.test(Antacid)
+
+library(fmsb)
+pairwise.fisher.test(t(Antacid), p.adjust.method = "bonferroni")
