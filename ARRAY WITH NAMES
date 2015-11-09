@@ -1,0 +1,8 @@
+dat <- array(c(8, 52, 5, 164, 25, 29, 21, 128), c(2, 2, 2))
+dat
+str(dat)
+dimnames(dat) <- list(c("case","control"),
+                      c("High","Low"),
+                      c("Low age group",
+    "High age group"))
+dat
