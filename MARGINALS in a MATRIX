@@ -6,3 +6,20 @@ dimnames(Antacid) = list(Symptoms = c("Heartburn", "Normal", "Totals"),
                 Medication = c("Drug A", "Drug B", "Totals"))
 
 Antacid
+
+
+====
+
+# See also the code to obtain the data in the Simpson's paradox as presented in Agresti's book:
+
+dat <- array(c(53, 11, 414, 37, 0, 4, 16, 139), c(2, 2, 2), dimnames =
+               list(Defendant_Race = c("white", "black"), Death_penalty = c("Yes","No"), Victims_Race = c("White", "black")))
+
+
+dat_perc <- round(prop.table(dat), 3)
+
+addmargins(dat)
+addmargins(dat_perc)
+
+dat
+dat_perc
