@@ -6,3 +6,28 @@ dimnames(dat) <- list(c("case","control"),
                       c("Low age group",
     "High age group"))
 dat
+
+str(dat)
+# num [1:2, 1:2, 1:2] 8 52 5 164 25 29 21 128   # There are three dimensions in this array, which implies that it's not a matrix.
+# - attr(*, "dimnames")=List of 3
+#  ..$ : chr [1:2] "case" "control"
+#  ..$ : chr [1:2] "High" "Low"
+#  ..$ : chr [1:2] "Low age group" "High age group"
+
+is.matrix(dat)
+#[1] FALSE
+
+===
+
+dat <- array(c(5,1,4,0), c(2,2))
+dat
+is.matrix(dat)
+dimnames(dat) <- list(MRI=c("pos","neg"), CT=c("pos","neg"))
+
+is.matrix(dat)
+#[1]   TRUE
+str(dat)
+# num [1:2, 1:2] 5 1 4 0   # This means that it has two dimensions - hence it's a matrix.
+# - attr(*, "dimnames")=List of 2
+#  ..$ MRI: chr [1:2] "pos" "neg"
+#  ..$ CT : chr [1:2] "pos" "neg"
