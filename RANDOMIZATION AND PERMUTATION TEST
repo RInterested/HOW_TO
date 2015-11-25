@@ -3,30 +3,53 @@
 # set up some data
 x <- c(53.4, 59.0, 40.4, 51.9, 43.8, 43.0, 57.6)
 y <- c(49.1, 57.9, 74.8, 46.8, 48.8, 43.7)
-xyv <- stack(list(x=x,y=y))$values
-nx  <- length(x)
 
-# do sample-x mean for all combinations for permutation test
-permmean = combn(xyv,nx,mean)
+xyv <- stack(list(x=x,y=y))$values     # 53.4 59.0 40.4 51.9 43.8 43.0 57.6 49.1 57.9 74.8 46.8 48.8 43.7
 
-# do the equivalent resampling for a randomization test
-randmean <- replicate(100000,mean(sample(xyv,nx)))
+nx  <- length(x)                       # 7
 
-# find p-value for permutation test
-left  = mean(permmean<=mean(x))
-right = mean(permmean>=(mean(xyv)*2-mean(x)))
-pvalue_perm = left+right
+# do sample-x mean for all combinations for PERMUTATION TEST:
+# the following puts together all the combinations (yes, combinations; not permutations, because we want unique means):
+
+permmean = combn(xyv, nx, mean)        # Means of each combination mixing up the two vectors
+
+# notice that 
+
+choose(length(xyv), length(x))         # 1716 # the number of combinations of taken from the combined vector is equal to:
+length(permmean)                       # 1716
+
+# find p-value for permutation test:
+
+# Left tail: percentage of means less than the mean of the first vector:
+# the more there are, the more vector y is "diluting" by being significantly lower in average: H_a: y < x
+
+left  = mean(permmean <= mean(x)) 
+
+# Right tail: H_a: y > x. In other words, y raises the mean as compared to x. 
+# If they were equal (H_o) mean(x) = mean(y) = mean(xyv) 
+# and mean(xyv) * 2 - mean(x) = mean(xyv)
+
+right = mean(permmean >= (mean(xyv) * 2 - mean(x)))
+pvalue_perm = left + right
 "Permutation test p-value"; pvalue_perm
+# [1] "Permutation test p-value" [1] 0.5378788
 
 # this is easier: 
-#      pvalue = mean(abs(meanperm-mean(xyv))>=abs(mean(x)-mean(xyv))) 
+     pvalue = mean(abs(permmean - mean(xyv)) >= abs(mean(x)-mean(xyv))) # 0.5378788
 # but I'd keep left and right above for adapting to other tests
 
+
+# Do the equivalent resampling for a RANDOMIZATION TEST:
+# here we sample and take the mean, which by default comes without replacement (with replacement is bootstrapping):
+
+randmean <- replicate(100000, mean(sample(xyv, nx)))
+
 # find p-value for randomization test
-left  = mean(randmean<=mean(x))
-right = mean(randmean>=(mean(xyv)*2-mean(x)))
-pvalue_rand = left+right
+left  = mean(randmean <= mean(x))
+right = mean(randmean>=(mean(xyv)*2 - mean(x)))
+pvalue_rand = left + right
 "Randomization test p-value"; pvalue_rand
+# [1] "Randomization test p-value" [1] 0.5402
 
 # Draw a display to show distn & p-vale region for both 
 opar <- par()
