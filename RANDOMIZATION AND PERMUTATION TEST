@@ -1,0 +1,41 @@
+# set up some data
+x <- c(53.4, 59.0, 40.4, 51.9, 43.8, 43.0, 57.6)
+y <- c(49.1, 57.9, 74.8, 46.8, 48.8, 43.7)
+xyv <- stack(list(x=x,y=y))$values
+nx  <- length(x)
+
+# do sample-x mean for all combinations for permutation test
+permmean = combn(xyv,nx,mean)
+
+# do the equivalent resampling for a randomization test
+randmean <- replicate(100000,mean(sample(xyv,nx)))
+
+# find p-value for permutation test
+left  = mean(permmean<=mean(x))
+right = mean(permmean>=(mean(xyv)*2-mean(x)))
+pvalue_perm = left+right
+"Permutation test p-value"; pvalue_perm
+
+# this is easier: 
+#      pvalue = mean(abs(meanperm-mean(xyv))>=abs(mean(x)-mean(xyv))) 
+# but I'd keep left and right above for adapting to other tests
+
+# find p-value for randomization test
+left  = mean(randmean<=mean(x))
+right = mean(randmean>=(mean(xyv)*2-mean(x)))
+pvalue_rand = left+right
+"Randomization test p-value"; pvalue_rand
+
+# Draw a display to show distn & p-vale region for both 
+opar <- par()
+par(mfrow=c(2,1))
+hist(permmean, n=100, xlim=c(45,58))
+abline(v=mean(x), col=3)
+abline(v=mean(xyv)*2-mean(x), col=3, lty=2)
+abline(v=mean(xyv), col=4)
+hist(randmean, n=100, xlim=c(45,58))
+abline(v=mean(x), col=3)
+abline(v=mean(xyv)*2-mean(x), col=3, lty=2)
+abline(v=mean(xyv), col=4)
+
+par(opar)
