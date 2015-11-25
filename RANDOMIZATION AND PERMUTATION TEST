@@ -52,7 +52,7 @@ pvalue_rand = left + right
 # [1] "Randomization test p-value" [1] 0.5402
 
 # Draw a display to show distn & p-vale region for both 
-opar <- par()
+
 par(mfrow=c(2,1))
 hist(permmean, n=100, xlim=c(45,58))
 abline(v=mean(x), col=3)
@@ -62,5 +62,3 @@ hist(randmean, n=100, xlim=c(45,58))
 abline(v=mean(x), col=3)
 abline(v=mean(xyv)*2-mean(x), col=3, lty=2)
 abline(v=mean(xyv), col=4)
-
-par(opar)
