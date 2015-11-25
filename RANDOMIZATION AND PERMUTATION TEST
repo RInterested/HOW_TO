@@ -26,8 +26,9 @@ length(permmean)                       # 1716
 left  = mean(permmean <= mean(x)) 
 
 # Right tail: H_a: y > x. In other words, y raises the mean as compared to x. 
-# If they were equal (H_o) mean(x) = mean(y) = mean(xyv) 
-# and mean(xyv) * 2 - mean(x) = mean(xyv)
+# If the lower cutoff limit is mean(x) the distance from the mean(xyv) is mean(xyv) - mean(x)
+# and we want the same distance on the positive side: mean(xyv) + (mean(xyv) - mean(x))
+# which is 3 * mean(xyv) - mean(x)
 
 right = mean(permmean >= (mean(xyv) * 2 - mean(x)))
 pvalue_perm = left + right
