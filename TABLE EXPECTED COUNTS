@@ -1,0 +1,10 @@
+Jane_Austen <- matrix(c(147,25,32,94,59,18,186,26,39,105,74,10,101,11,15,37,28,10), nrow = 6)
+dimnames(Jane_Austen) <- list(Word = c("a","an","this","that","with","without"),
+                              Work = c("S&S","Emma","Sand1"))
+addmargins(Jane_Austen)
+
+expect <- round(chisq.test(Jane_Austen)$expected)
+addmargins(expect)
+final <- as.table(Jane_Austen)
+final[] <- paste(as.table(Jane_Austen),paste0("(",as.table(expect),")"))
+final
