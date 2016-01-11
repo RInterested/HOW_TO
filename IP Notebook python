@@ -1,0 +1,13 @@
+Go to cmd command and type:
+
+cd c:\Users\p\Documents\matrix
+
+to select where to save files.
+
+Then type:
+
+ipython notebook
+
+Jupyter should open on Chrome, ready to play.
+
+Don't close cmd window during the session. To end type Ctrl + c
