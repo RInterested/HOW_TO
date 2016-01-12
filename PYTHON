@@ -25,6 +25,10 @@ it can be modified over and over to make it a full document onto itself. The dra
 
 %pylab inline
 
+#To plot imaginary numbers:
+
+from plotting import plot
+
 #Should be able to work with Python, R, Markdown
 
 #Save by downloading in any extension - it'll go to wherever the browser downloads, and then it can be moved to other folders.
