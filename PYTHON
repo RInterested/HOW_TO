@@ -18,6 +18,10 @@ Jupyter should open on Chrome, ready to play.
 
 Don't close cmd window during the session. To end type Ctrl + c
 
+#To start doing math with python type:
+
+%pylab inline
+
 #Should be able to work with Python, R, Markdown
 
 #Save by downloading in any extension - it'll go to wherever the browser downloads, and then it can be moved to other folders.
