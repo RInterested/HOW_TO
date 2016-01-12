@@ -2,6 +2,7 @@
 #Install R dependencies (http://irkernel.github.io/installation/)
 #Install Markdown (pandoc) (https://github.com/jgm/pandoc/releases/tag/1.16.0.1)
 #May or may not need (https://www.continuum.io/blog/developer/jupyter-and-conda-r)
+#Download plotting.py from (http://resources.codingthematrix.com) for matrix work.
 #PyCharm can remain installed.
 
 #OPENING:
