@@ -18,6 +18,9 @@ Jupyter should open on Chrome, ready to play... File > New Notebook > select ker
 
 Don't close cmd window during the session. To end type Ctrl + c
 
+Each In[]: is a "cell". You can run the cells by pressing Ctrl + Return. Later, placing the cursor on the cell
+it can be modified over and over to make it a full document onto itself. The drawback - it can't be run line by line.
+
 #To start doing math with python type:
 
 %pylab inline
