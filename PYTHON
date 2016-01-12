@@ -14,7 +14,7 @@ cd c:\Users\p\Documents\matrix       #If matrix is where we want to work from.
 
 ipython notebook
 
-Jupyter should open on Chrome, ready to play.
+Jupyter should open on Chrome, ready to play... File > New Notebook > select kernel or open existing notebooks.
 
 Don't close cmd window during the session. To end type Ctrl + c
 
