@@ -1,13 +1,23 @@
-Go to cmd command and type:
+#Install python and anaconda (anaconda includes math packages for python)
+#Install R dependencies (http://irkernel.github.io/installation/)
+#Install Markdown (pandoc) (https://github.com/jgm/pandoc/releases/tag/1.16.0.1)
+#May or may not need (https://www.continuum.io/blog/developer/jupyter-and-conda-r)
+#PyCharm can remain installed.
 
-cd c:\Users\p\Documents\matrix
+#OPENING:
 
-to select where to save files.
+#Go to cmd command and type:
 
-Then type:
+cd c:\Users\p\Documents\matrix       #If matrix is where we want to work from.
+
+#Then type:
 
 ipython notebook
 
 Jupyter should open on Chrome, ready to play.
 
 Don't close cmd window during the session. To end type Ctrl + c
+
+#Should be able to work with Python, R, Markdown
+
+#Save by downloading in any extension - it'll go to wherever the browser downloads, and then it can be moved to other folders.
