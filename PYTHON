@@ -25,6 +25,20 @@ it can be modified over and over to make it a full document onto itself. The dra
 #To start doing math with python type:
 
 %pylab inline
+x = linspace(0, 2 * pi, 500)
+plot(x, sin(x))
+
+## IN PYCHARM:
+
+%pylab
+x = linspace(0, 2 * pi, 500)
+plot(x, sin(x))
+
+# But if we want it to go to the browser:
+
+from plotting import plot
+L = [2 + 2j, 3 + 2j, 1.75 + 1j]
+plot(L)
 
 #To plot imaginary numbers:
 
