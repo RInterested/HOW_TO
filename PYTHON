@@ -49,3 +49,19 @@ from plotting import plot
 #Should be able to work with Python, R, Markdown
 
 #Save by downloading in any extension - it'll go to wherever the browser downloads, and then it can be moved to other folders.
+
+
+
+
+import matplotlib.pyplot as plt
+import numpy as np
+import matplotlib.mlab as mlab
+import math
+
+mean = 0
+variance = 1
+sigma = math.sqrt(variance)
+x = np.linspace(-3,3,100)
+plt.plot(x,mlab.normpdf(x,mean,sigma))
+
+plt.show()
