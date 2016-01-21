@@ -1,3 +1,4 @@
+#File settings projects projects interpreter select interpreter If anaconda not there, add it by browsing from pycharm to anaconda3/python.exe
 #Install python and anaconda (anaconda includes math packages for python)
 #Install R dependencies (http://irkernel.github.io/installation/)
 #Install Markdown (pandoc) (https://github.com/jgm/pandoc/releases/tag/1.16.0.1)
