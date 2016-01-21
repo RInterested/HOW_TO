@@ -1,5 +1,6 @@
-#File settings projects projects interpreter select interpreter If anaconda not there, add it by browsing from pycharm to anaconda3/python.exe
 #Install python and anaconda (anaconda includes math packages for python)
+#From pycharm, go to File > settings > projects > interpreter > select interpreter 
+#If anaconda not there, add it by browsing from pycharm to anaconda3/python.exe
 #Install R dependencies (http://irkernel.github.io/installation/)
 #Install Markdown (pandoc) (https://github.com/jgm/pandoc/releases/tag/1.16.0.1)
 #May or may not need (https://www.continuum.io/blog/developer/jupyter-and-conda-r)
