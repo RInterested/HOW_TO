@@ -1,3 +1,20 @@
+====================================================
+=LOOP WITH IF STATEMENT KEEPING TALLY OF SUCCESSES:=
+====================================================
+
+suits <- c("spd","hrt","dimd","clbs")
+ranks  <- c(1:10,"J","Q","K")
+deck <- as.matrix(expand.grid('rank' = ranks, 'suit' = suits))
+draw <- function (n) deck[sample(nrow(deck), n), ]
+draw(5)
+
+iterations <- 1e5
+counter <- 0
+for (i in 1:iterations){
+s <- draw(5)
+if(length(unique(s[ , 1])) == 2) counter <- counter + 1
+}
+counter/iterations * 100
 
 TYPICAL SET UP WITH A COUNTER OR INDEX i:
 ----------------------------------------
