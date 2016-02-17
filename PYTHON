@@ -86,5 +86,5 @@ pip install NAME PACKAGE
 
 IF DOWNLOADING FROM GITHUB:
 Download ZIP
-Do a Shift + Right click on the unzipped folder
+Move unzipped folder to python directory
 Go to python terminal on PyCharm and type pip install NAME
