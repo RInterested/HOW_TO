@@ -82,3 +82,9 @@ IF this fails, go to cmd prompt and type:
 c:\Anaconda2\Scripts\activate.bat                           (or Anaconda3 whichever applies) 
 and then
 pip install NAME PACKAGE
+
+
+IF DOWNLOADING FROM GITHUB:
+Download ZIP
+Do a Shift + Right click on the unzipped folder
+Go to python terminal on PyCharm and type pip install NAME
