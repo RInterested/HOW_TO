@@ -65,3 +65,20 @@ x = np.linspace(-3,3,100)
 plt.plot(x,mlab.normpdf(x,mean,sigma))
 
 plt.show()
+
+#####################################
+### VERSIONS and INSTALLING MODULES:#
+#####################################
+Anaconda2 goes with Python 2.7
+Anaconda3 goes with Python 3.5
+
+Go to File in PyCharm and select Settings > Project interpreter > Select the right one from the drop-down menu at the top
+It's either Anaconda2 or 3.
+
+To install a package click on the green PLUS sign at the upper right hand corner and select install.
+
+IF this fails, go to cmd prompt and type:
+
+c:\Anaconda2\Scripts\activate.bat                           (or Anaconda3 whichever applies) 
+and then
+pip install NAME PACKAGE
