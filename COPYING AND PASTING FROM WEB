@@ -1,15 +1,28 @@
-x <- scan(text="8 8 4 1 2 2 0 2 5 2 3 3 3 1 5 4 4 1 4 2") 
-y <- scan(text="4 0 4 1 1 2 0 1 2 2 1 2 1 0 0 0 1 1 1 1")
+# We have copied something monstrous that goes on forever, comma separated, like in:
 
----
+id,d,t,fpsa,tpsa,age
+1,1,-4.482,3.525,14.82,67.581
+2,1,-4.498,1.104,5.54,70.166
+2,1,-1.336,2.405,8.15,73.328
+2,1,-.356,2.428,10.71,74.308
+3,0,-3.381,.226,.94,55.028
+3,0,-1.117,.227,1.03,57.292
+3,0,-.178,.242,1.03,58.231
+3,0,.838,.203,.98,59.247
+...
 
-dput(a)
-write(dput(a), "file.R")
+# We go to the R console, and type: 
 
----
+data=read.table(stdin(),header=TRUE, sep=",")
 
-data=read.table(stdin(),header=TRUE)
+# Press return and Ctrl + V to paste
 
----
+# Press return and let it do its job...
 
-sodput(a)
+# Save it in the R directory like this:
+
+write.csv(data, "name of the file.csv")
+
+# Now it is accessible by just calling it through:
+
+dat <- read.csv("psa.csv")
