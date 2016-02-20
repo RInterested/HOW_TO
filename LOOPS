@@ -1,3 +1,15 @@
+
+threshold
+[1]  -Inf 0.070 0.115 0.135   Inf
+
+1:length(threshold)
+[1] 1 2 3 4 5
+
+for (i in 1:length(threshold)){
+cut[i] <- exp(predict(fit,data.frame(s100b=threshold[i]))) / (1 + exp(predict(fit,data.frame(s100b=threshold[i]))))
+}
+
+
 ====================================================
 =LOOP WITH IF STATEMENT KEEPING TALLY OF SUCCESSES:=
 ====================================================
