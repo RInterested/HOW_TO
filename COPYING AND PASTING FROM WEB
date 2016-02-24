@@ -15,6 +15,10 @@ id,d,t,fpsa,tpsa,age
 
 data=read.table(stdin(),header=TRUE, sep=",")
 
+# if no commas:
+
+data=read.table(stdin(),header=TRUE, sep=" ")
+
 # Press return and Ctrl + V to paste
 
 # Press return and let it do its job...
