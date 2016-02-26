@@ -41,3 +41,9 @@ dat <- read.csv("psa.csv")
 ######################################################
 
 # Replace "paste here with the data in the clipboard before pressing return.
+
+########################################
+#OPdata=read.table(stdin(),header=TRUE)#
+########################################
+
+# From here: http://meta.stats.stackexchange.com/a/2813/67822
