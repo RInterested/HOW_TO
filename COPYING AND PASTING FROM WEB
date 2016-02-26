@@ -1,3 +1,8 @@
+################
+#read.table()###
+################
+
+
 # We have copied something monstrous that goes on forever, comma separated, like in:
 
 id,d,t,fpsa,tpsa,age
@@ -30,3 +35,9 @@ write.csv(data, "name of the file.csv")
 # Now it is accessible by just calling it through:
 
 dat <- read.csv("psa.csv")
+
+######################################################
+# data = read.table(textConnection(' *paste here* '))#
+######################################################
+
+# Replace "paste here with the data in the clipboard before pressing return.
