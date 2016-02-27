@@ -43,10 +43,37 @@ dat <- read.csv("psa.csv")
 # Replace "paste here with the data in the clipboard before pressing return.
 
 ########################################
-#OPdata=read.table(stdin(),header=TRUE)#
+#### read.table(stdin(),header=TRUE) ###
 ########################################
 
 # From here: http://meta.stats.stackexchange.com/a/2813/67822
 
-OPdata=read.table(stdin(),header=TRUE)
+data = read.table(stdin(), header = TRUE) # This goes into the console, and at the prompt Ctrl + V
 
+  A  B
+1 4  2
+2 4 10
+3 7  4
+4 7 22
+5 8 16
+6 9 10
+
+dput(data) # Produces the structure of data. Now it's just a matter of highlighting, copying, and pasting in the Script part:
+
+structure(list(A = c(4L, 4L, 7L, 7L, 8L, 9L), B = c(2L, 10L, 
+4L, 22L, 16L, 10L)), .Names = c("A", "B"), class = "data.frame", row.names = c(NA, 
+-6L))
+
+# Before running it, we naturally have to give it a name:
+
+DATA = structure(list(A = c(4L, 4L, 7L, 7L, 8L, 9L), B = c(2L, 10L, 
+4L, 22L, 16L, 10L)), .Names = c("A", "B"), class = "data.frame", row.names = c(NA, 
+-6L))
+
+# Now we just run it, and we can save it with the R document we were working on, just as the structure.
+
+# More info: http://stackoverflow.com/a/5963610/4089351
+
+# We can also just write the data as an R document:
+
+write(dput(data), "file.R") and then move it into other R documents by opening side by side.
