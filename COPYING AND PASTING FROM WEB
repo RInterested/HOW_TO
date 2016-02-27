@@ -47,3 +47,6 @@ dat <- read.csv("psa.csv")
 ########################################
 
 # From here: http://meta.stats.stackexchange.com/a/2813/67822
+
+OPdata=read.table(stdin(),header=TRUE)
+
