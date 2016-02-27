@@ -1,40 +1,4 @@
-################
-#read.table()###
-################
 
-
-# We have copied something monstrous that goes on forever, comma separated, like in:
-
-id,d,t,fpsa,tpsa,age
-1,1,-4.482,3.525,14.82,67.581
-2,1,-4.498,1.104,5.54,70.166
-2,1,-1.336,2.405,8.15,73.328
-2,1,-.356,2.428,10.71,74.308
-3,0,-3.381,.226,.94,55.028
-3,0,-1.117,.227,1.03,57.292
-3,0,-.178,.242,1.03,58.231
-3,0,.838,.203,.98,59.247
-...
-
-# We go to the R console, and type: 
-
-data=read.table(stdin(),header=TRUE, sep=",")
-
-# if no commas:
-
-data=read.table(stdin(),header=TRUE, sep=" ")
-
-# Press return and Ctrl + V to paste
-
-# Press return and let it do its job...
-
-# Save it in the R directory like this:
-
-write.csv(data, "name of the file.csv")
-
-# Now it is accessible by just calling it through:
-
-dat <- read.csv("psa.csv")
 
 ######################################################
 # data = read.table(textConnection(' *paste here* '))#
@@ -43,7 +7,7 @@ dat <- read.csv("psa.csv")
 # Replace "paste here with the data in the clipboard before pressing return.
 
 ########################################
-#### read.table(stdin(),header=TRUE) ###
+#### read.table(stdin(), header=TRUE) ###
 ########################################
 
 # From here: http://meta.stats.stackexchange.com/a/2813/67822
@@ -77,3 +41,42 @@ DATA = structure(list(A = c(4L, 4L, 7L, 7L, 8L, 9L), B = c(2L, 10L,
 # We can also just write the data as an R document:
 
 write(dput(data), "file.R") and then move it into other R documents by opening side by side.
+
+# We have copied something monstrous that goes on forever, comma separated, like in:
+
+id,d,t,fpsa,tpsa,age
+1,1,-4.482,3.525,14.82,67.581
+2,1,-4.498,1.104,5.54,70.166
+2,1,-1.336,2.405,8.15,73.328
+2,1,-.356,2.428,10.71,74.308
+3,0,-3.381,.226,.94,55.028
+3,0,-1.117,.227,1.03,57.292
+3,0,-.178,.242,1.03,58.231
+3,0,.838,.203,.98,59.247
+...
+
+# We go to the R console, and type: 
+
+data = read.table(stdin(),header=TRUE, sep=",")
+
+# if no commas:
+
+data=read.table(stdin(),header=TRUE, sep=" ")
+
+# Press return and Ctrl + V to paste
+
+# Press return and let it do its job...
+
+# Save it in the R directory like this:
+
+write.csv(data, "name of the file.csv")
+
+# Now it is accessible by just calling it through:
+
+dat <- read.csv("psa.csv")
+
+# for example:
+
+a = as.numeric(read.table(text = "8 8 4 1 2 2 0 2 5 2 3 3 3 1 5 4 4 1 4 2", sep = " "))
+a
+ [1] 8 8 4 1 2 2 0 2 5 2 3 3 3 1 5 4 4 1 4 2
