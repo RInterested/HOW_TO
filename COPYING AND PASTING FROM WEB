@@ -91,3 +91,6 @@ words <- strsplit(sentence, split = " ")
 words
 [[1]]
 [1] "Obama"     "received"  "national"  "attention"
+
+
+sentences <- strsplit(z, "[.!?] *") # Splits sentences.
