@@ -80,3 +80,14 @@ dat <- read.csv("psa.csv")
 a = as.numeric(read.table(text = "8 8 4 1 2 2 0 2 5 2 3 3 3 1 5 4 4 1 4 2", sep = " "))
 a
  [1] 8 8 4 1 2 2 0 2 5 2 3 3 3 1 5 4 4 1 4 2
+
+
+########################
+# Entering text:       #
+########################
+
+sentence <- c("Obama received national attention")
+words <- strsplit(sentence, split = " ")
+words
+[[1]]
+[1] "Obama"     "received"  "national"  "attention"
