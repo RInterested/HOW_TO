@@ -6,9 +6,9 @@
 
 # Replace "paste here with the data in the clipboard before pressing return.
 
-########################################
-#### read.table(stdin(), header=TRUE) ###
-########################################
+###################################################
+#### read.table(stdin(), header=TRUE, sep = "") ### Fill in the type of separation: space ""; comma ","; or semicolon ";"
+###################################################
 
 # From here: http://meta.stats.stackexchange.com/a/2813/67822
 
