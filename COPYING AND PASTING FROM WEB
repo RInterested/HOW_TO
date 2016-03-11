@@ -1,8 +1,8 @@
 
 
-######################################################
-# data = read.table(textConnection(' *paste here* '))#
-######################################################
+##################################################################################
+# data = read.table(textConnection(' '))# Ctrl+V the Clipboard in between quotes:#
+##################################################################################
 
 # Replace "paste here with the data in the clipboard before pressing return.
 
