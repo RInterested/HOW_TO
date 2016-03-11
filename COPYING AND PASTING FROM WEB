@@ -10,6 +10,13 @@
 #### read.table(stdin(), header=TRUE, sep = "") ### Fill in the type of separation: space ""; comma ","; or semicolon ";"
 ###################################################
 
+AND SAVE IT:
+
+#########################################################################################
+###write.csv(data, "test.R")  # Will save `data` to the R directory                   ###
+###write.csv2(data, "test.R") # Will save `data` correctly if separation if semicolon.###
+#########################################################################################
+
 # From here: http://meta.stats.stackexchange.com/a/2813/67822
 
 data = read.table(stdin(), header = TRUE) # This goes into the console, and at the prompt Ctrl + V
