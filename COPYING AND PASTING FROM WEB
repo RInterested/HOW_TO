@@ -1,4 +1,10 @@
 
+# Reading the matrix in a post:
+
+##########################################################################
+# library(psych); mat <- "dimnames<-"(as.matrix(read.clipboard()), NULL) #
+##########################################################################
+
 
 ##################################################################################
 # data = read.table(textConnection(' '))# Ctrl+V the Clipboard in between quotes#
