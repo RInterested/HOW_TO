@@ -1,0 +1,17 @@
+# Data on latency in rat paw licking to study morphine tolerance
+
+d = matrix(c(3,2,14,29,24,
+             5,12,6,20,26,
+             1,13,12,36,40,
+             8,6,4,21,32,
+             1,10,19,25,20,
+             1,7,3,18,33,
+             4,11,9,26,27,
+             9,19,21,17,30), nrow=8, byrow=T)
+colnames(d)= c('MS','MM','SS','SM','McM')
+d
+require("reshape")
+dat = melt(d)
+colnames(dat)=c("Rat","Sequence","Latency")
+head(dat)
+summary(aov(Latency ~ Sequence, dat))
