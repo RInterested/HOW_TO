@@ -2,25 +2,24 @@
 # Reading the matrix in a post:
 
 ##########################################################################
-library(psych); mat <- "dimnames<-"(as.matrix(read.clipboard()), NULL) 
+library(psych)
+mat <- "dimnames<-"(as.matrix(read.clipboard()), NULL) 
 ##########################################################################
 
 
 ##################################################################################
-data = read.table(textConnection(' '))# Ctrl+V the Clipboard in between quotes
+dat = read.table(textConnection(' '))     # Ctrl+V the Clipboard in between quotes
 ##################################################################################
-
-# Replace "paste here with the data in the clipboard before pressing return.
 
 # If there are headers:
 
 ##################################################################################
-data = read.table(textConnection(''), header=T)
+dat = read.table(textConnection(''), header=T)
 ##################################################################################
 
 
 ###################################################
-read.table(stdin(), header=TRUE, sep = "") # Fill in the type of separation: space ""; comma ","; or semicolon ";"
+dat = read.table(stdin(), header=TRUE, sep = "") # Fill in the type of separation: space ""; comma ","; or semicolon ";"
 ###################################################
 
 AND SAVE IT:
