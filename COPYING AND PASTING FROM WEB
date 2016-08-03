@@ -2,12 +2,12 @@
 # Reading the matrix in a post:
 
 ##########################################################################
-# library(psych); mat <- "dimnames<-"(as.matrix(read.clipboard()), NULL) #
+library(psych); mat <- "dimnames<-"(as.matrix(read.clipboard()), NULL) 
 ##########################################################################
 
 
 ##################################################################################
-# data = read.table(textConnection(' '))# Ctrl+V the Clipboard in between quotes#
+data = read.table(textConnection(' '))# Ctrl+V the Clipboard in between quotes
 ##################################################################################
 
 # Replace "paste here with the data in the clipboard before pressing return.
@@ -15,19 +15,19 @@
 # If there are headers:
 
 ##################################################################################
-# data = read.table(textConnection(''), header=T)#
+data = read.table(textConnection(''), header=T)
 ##################################################################################
 
 
 ###################################################
-#### read.table(stdin(), header=TRUE, sep = "") ### Fill in the type of separation: space ""; comma ","; or semicolon ";"
+read.table(stdin(), header=TRUE, sep = "") # Fill in the type of separation: space ""; comma ","; or semicolon ";"
 ###################################################
 
 AND SAVE IT:
 
 #########################################################################################
-###write.csv(data, "test.R")  # Will save `data` to the R directory                   ###
-###write.csv2(data, "test.R") # Will save `data` correctly if separation if semicolon.###
+write.csv(data, "test.R")  # Will save `data` to the R directory                   
+write.csv2(data, "test.R") # Will save `data` correctly if separation if semicolon.
 #########################################################################################
 
 # From here: http://meta.stats.stackexchange.com/a/2813/67822
