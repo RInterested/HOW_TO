@@ -1,0 +1,17 @@
+# https://www.r-bloggers.com/simulating-random-multivariate-correlated-data-continuous-variables/
+# http://stats.stackexchange.com/a/89830/67822
+
+R = matrix(cbind(1, .80, .2, .80, 1, .7, .2, .7, 1), nrow=3)
+U = t(chol(R))
+nvars = dim(U)[1]
+numobs = 100000
+set.seed(1)
+random.normal = matrix(rnorm(nvars*numobs,0,1), nrow=nvars, ncol=numobs);
+X = U %*% random.normal
+newX = t(X)
+raw = as.data.frame(newX)
+orig.raw = as.data.frame(t(random.normal))
+names(raw) = c("response","predictor1","predictor2")
+cor(raw)
+plot(head(raw, 100))
+plot(head(orig.raw,100))
