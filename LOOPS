@@ -1,3 +1,31 @@
+====================================================================
+=LOOP THROUGH GIVEN SEQUENCE OF NUMBERS THAT DO NOT START AT A ZERO:
+====================================================================
+
+p <- numeric()
+for(i in 50:76){   
+    j <- choose(76, i)*.5^76
+    p <- c(p, j)} 
+p
+sum(p)
+pbinom(q = 49, size = 76, .5, lower.tail = F)
+
+#OR
+
+p <- numeric(length = 27) 
+for(i in 50:76){ 
+  p[i - 50 + 1]= choose(76,i) * .5^76 
+} 
+p
+sum(p)
+pbinom(q = 49, size = 76, .5, lower.tail = F)
+
+#MORE EFFICIENT WITH SAPPLY:
+
+p = sapply(50:76, function(i) choose(76,i)*.5^76)
+sum(p)
+
+====================================================================================================================
 
 threshold
 [1]  -Inf 0.070 0.115 0.135   Inf
