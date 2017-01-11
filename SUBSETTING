@@ -1,3 +1,20 @@
+How do you subset with Boolean operators (without using subset()) the columns of a matrix?
+
+> m = matrix(c("A", "B", "B", "B", "C", "A", "C", "C", "D"), nrow = 3)
+> m
+     [,1] [,2] [,3]
+[1,] "A"  "B"  "C" 
+[2,] "B"  "C"  "C" 
+[3,] "B"  "A"  "D" 
+
+m[, colSums(m == "D") > 0, drop=FALSE]
+
+or
+
+m[,apply(m, MARGIN = 2, function(x) any(x == "D")), drop = FALSE]
+
+-----------------------------------------------------------------------------------------------------------------------------
+
 head(mtcars)
                    mpg cyl disp  hp drat    wt  qsec vs am gear carb
 Mazda RX4         21.0   6  160 110 3.90 2.620 16.46  0  1    4    4
