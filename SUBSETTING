@@ -1,3 +1,12 @@
+Finding the value in a column of a matrix dependent on the maximum (or minimum) in another column. The example comes from a MLE
+illustration:
+
+p = seq(0, 1, 0.001)
+L = p^3 * (1 - p)^2
+d = cbind(p,L)
+d[which.max(d[,2]), 1]
+
+-----------------------------------------------------------------------------------------------------------------------------
 How do you subset with Boolean operators (without using subset()) the columns of a matrix?
 
 > m = matrix(c("A", "B", "B", "B", "C", "A", "C", "C", "D"), nrow = 3)
