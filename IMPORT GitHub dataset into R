@@ -1,0 +1,10 @@
+require(RCurl)
+require(foreign)
+x = getURL("https://raw.githubusercontent.com/RInterested/datasets/gh-pages/Davis.csv")
+read.csv(text = x, sep =",")
+
+NOTE:
+
+YOU NEED TO PRESS ON THE RAW BUTTON WITHIN GITHUB TO GET THE RAW ADDRESS. The regular address doesn't work:
+
+https://github.com/RInterested/datasets/blob/gh-pages/Davis.csv

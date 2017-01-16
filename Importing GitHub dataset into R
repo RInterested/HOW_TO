@@ -1,4 +1,0 @@
-require(RCurl)
-require(foreign)
-x = getURL("https://raw.githubusercontent.com/RInterested/datasets/gh-pages/Davis.csv")
-read.csv(text = x, sep =",")
