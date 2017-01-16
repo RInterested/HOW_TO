@@ -1,3 +1,28 @@
+> head(davis)
+  sex weight height repwt repht
+1   M     77    182    77   180
+2   F     58    161    51   159
+3   F     53    161    54   158
+4   M     68    177    70   175
+5   F     59    157    59   155
+6   M     76    170    76   165
+> 
+> ht = lm(height ~ weight, davis)
+> wt = lm(weight ~ height, davis)
+> 
+> 
+> new.df = data.frame(height =  190)
+> (w = predict(wt, new.df))
+       1 
+70.56335 
+> 
+> new.df = data.frame(weight = w)
+> predict(ht, new.df)
+       1 
+170.7386 
+
+-------------------------------------------------------------------------------------------
+
 # Predicting miles per gallon based on weight of vehicle:
 
 fit <- lm(mpg ~ wt, data = mtcars)
