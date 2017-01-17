@@ -1,0 +1,14 @@
+> x = sample(c("Y", "M", "_"))
+> y = sample(c("O", "U","E", "S", "H"))
+> 
+> while(paste(x, collapse ="") != "MY_") x = sample(x)
+> paste(x, collapse = "")
+[1] "MY_"
+> 
+> while(paste(y, collapse ="") != "HOUSE") y = sample(y)
+> paste(y, collapse = "")
+[1] "HOUSE"
+> 
+> while(paste(x, collapse ="") != "MY_" || paste(y, collapse ="") != "HOUSE") {x = sample(x); y = sample(y)}
+> paste(c(x, y), collapse = "")
+[1] "MY_HOUSE"
