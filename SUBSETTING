@@ -1,3 +1,12 @@
+# Select the ROWS of a MATRIX (not a data.frame!!!!) contingent on the values of one of the columns:
+# From http://stackoverflow.com/a/5391697/4089351
+
+m[m[,3] == 11,]
+
+with 3 being the column number we want to establish the condition on.
+
+----------------------------------------------------------------------------------------------------------------------------
+
 Finding the value in a column of a matrix dependent on the maximum (or minimum) in another column. The example comes from a MLE
 illustration:
 
