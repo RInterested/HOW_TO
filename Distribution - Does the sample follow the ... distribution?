@@ -1,0 +1,13 @@
+# From https://stats.stackexchange.com/a/25576/67822
+
+require(fitdistrplus)
+
+set.seed(1)
+dat <- rnorm(50,0,1)
+(f1 <- fitdist(dat,"norm"))
+f2 <- fitdist(dat,"logis")
+f3 <- fitdist(dat,"cauchy")
+
+plotdist(dat,"norm",para=list(mean=f1$estimate[1],sd=f1$estimate[2]))
+plotdist(dat,"logis",para=list(location=f2$estimate[1],scale=f2$estimate[2]))
+plotdist(dat,"cauchy",para=list(location=f3$estimate[1],scale=f3$estimate[2]))
