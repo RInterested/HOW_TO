@@ -12,3 +12,22 @@
 > while(paste(x, collapse ="") != "MY_" || paste(y, collapse ="") != "HOUSE") {x = sample(x); y = sample(y)}
 > paste(c(x, y), collapse = "")
 [1] "MY_HOUSE"
+
+
+====
+
+# Expected number of throws of a die before we reach at least 6, conditioned on event all even no.'s
+even = c(2,4,6)
+
+one.simulation = function() {
+  N <- 1
+  Y <- sample(c(2,4,6), 1)
+  while (Y < 6) {
+    X <- sample(c(2,4,6), 1)
+    Y <- Y + X
+    N <- N + 1
+  }
+  N
+}
+replicate(2, one.simulation())
+mean(replicate(1e4, one.simulation()))
