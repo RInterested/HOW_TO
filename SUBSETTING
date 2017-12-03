@@ -1,9 +1,9 @@
 # Select the ROWS of a MATRIX (not a data.frame!!!!) contingent on the values of one of the columns:
 # From http://stackoverflow.com/a/5391697/4089351
 
-m[m[,3] == 11,]
+m[m[,3] == 11,   ,drop=F]
 
-with 3 being the column number we want to establish the condition on.
+with 3 being the column number we want to establish the condition on. Drop = F is critical to avoid single rows becoming vectors.
 
 ----------------------------------------------------------------------------------------------------------------------------
 
