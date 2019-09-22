@@ -1,0 +1,26 @@
+clear all; close all; clc
+imdata = imread('C:\Users\anton\Desktop\Eiffel tower.png');
+figure(1); imshow(imdata);title('Original Image');
+
+imdata = rgb2gray(imdata);
+figure(2); imshow(imdata);title('Gray Image');
+
+F = fft2(imdata);
+
+%magnitude
+
+S = abs(F);
+figure(3); imshow(S,[]);title('FFT magnitude');
+Fsh = fftshift(F);
+figure(4); imshow(abs(Fsh),[]);title('FFT magnitude centered');
+
+%Apply log transform:
+
+S2 = log(1 + Fsh);
+figure(5); imshow(S2,[]);title('FFT magnitude centered and log');
+
+%Reconstruct image:
+
+F = ifftshift(Fsh);
+f = ifft2(F);
+figure(6); imshow(f,[]), title('Reconstructed image');
