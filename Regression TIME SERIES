@@ -1,0 +1,32 @@
+install.packages('gsheet')
+library(gsheet)
+
+d <- gsheet2tbl('https://docs.google.com/spreadsheets/d/1pUajVShz7fPOE16wQV5gCRV8dMpxXhSoU9pTVXYjKmo')
+d$Date=as.Date(d$Date,format="%m/%d/%y")
+
+
+d$day <- seq_along(d$Date)    # Required to call the linear regression model.
+mod <- lm(Weight ~ day, d)    # And here is the regression model.
+
+
+# Plotting incorporating back the date format:
+
+d$day <- seq_along(d$Date)                                    # Required to call the linear regression model.
+mod <- lm(Weight ~ day, d)                                    # And here is the regression model.
+
+options(repr.plot.width=10, repr.plot.height=10)
+with(d, plot(day, Weight, 
+      main="Weight loss progress", cex.main=1.2,
+      xaxt="n",                                               # The x axis i not plotted because we want to re-incorporate dates into it.
+      xlab='', 
+      ylab='',
+      las = 2,
+      col='firebrick', pch = 19))
+
+tck <- seq(min(d$day), max(d$day), by=3)                      # Determine the number of tick marks.
+axis(1, tck, labels=FALSE)                                    # Plot the actual ticks still without labels.
+mtext(strftime(d$Date[tck], "%b %d"), 1, 1, at=tck, las=2)    # Add the labels on the x-axis at each tick. las determines the orientation.
+
+lines(mod$fitted.values, col='darkorange4', lwd=2)
+points(d$day, d$Weight, col='firebrick', pch = 19)
+abline(h=d$Weight[length(d$Date)], col="gray70")
